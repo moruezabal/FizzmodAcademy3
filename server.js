@@ -36,12 +36,31 @@ const getMessageHours = () => {
   }
 }
 
+const randomStadistic = (min, max, iterations) => {
+  let resume = {};
+
+  for (let i = 0; i < iterations; i++) {
+    let randomKey = Math.round((Math.random() * (max - min) + min));
+    if(resume.hasOwnProperty(randomKey)){
+      resume[randomKey] += 1;
+    }
+    else{
+      resume[randomKey] = 1;
+    }   
+  }
+  return resume
+}
+
 app.get('/', (req, res) => {
     res.send(getMessageHours())
   })
 
 app.get('/random', (req, res) => {
-  res.send(getMessageHours())
+  res.send(randomStadistic(1,20,10000))
+})
+
+app.get('/info', (req, res) => {
+  res.send()
 })
 
   
