@@ -120,10 +120,10 @@ app.get('/operaciones', (req, res) => {
     res.send(solveOperation(req.query));
   }
   else{
-    res.send({"error": {
-      "num1": { "valor": req.query.num1, "tipo": typeof(req.query.num1) },
-      "num2": { "valor": req.query.num2, "tipo": typeof(req.query.num2) },
-      "operacion": { "valor": req.query.operacion, "tipo": typeof(req.query.operacion) }
+    res.send({error: {
+      num1: { valor: req.query.num1, tipo: typeof(req.query.num1) },
+      num2: { valor: req.query.num2, tipo: typeof(req.query.num2) },
+      operacion: { valor: req.query.operacion, tipo: typeof(req.query.operacion) }
       } 
     });
   }
